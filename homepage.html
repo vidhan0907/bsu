@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSU - Bharatiya Shiksha Udyog</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    
+    <!-- Hero Section -->
+    <section class="hero"> 
+        <div class="hero-content">
+          <img src="logo.jpg" alt="Hero Image" class="hero-image">
+          <h1>Welcome to Bharatiya Shiksha Udyog (BSU)</h1> 
+          <p class="tagline">STEM Shiksha se judega Bharat, tabhi toh unnati karega Bharat</p>
+        </div> 
+        <style>
+            .hero-content {
+              text-align: center; /* Centers the content */
+            }
+            .hero-image {
+              width: 22%; /* Adjust the width of the image to fit the container */
+              height: auto; /* Keeps the image aspect ratio intact */
+              margin-bottom: 20px; /* Adds space between the image and the h1 */
+            }
+        </style>
+      </section>
+
+
+    <!-- Course Folders Section -->
+    <section class="course-folders">
+        <div class="container">
+            <h2>Access Course Folders</h2>
+            <div class="folders">
+                <div class="folder" data-folder="maths-probability">
+                    <h3>Class 10</h3>
+                    <p>Mathematics - Probability - Session 1</p>
+                    <a href="#" class="view-course-btn">View Course</a>
+                </div>
+                <div class="folder" data-folder="science-gravity">
+                    <h3>Class 9</h3>
+                    <p>Science - Gravity - Session 2</p>
+                    <a href="#" class="view-course-btn">View Course</a>
+                </div>
+                <div class="folder" data-folder="geography-maps">
+                    <h3>Class 8</h3>
+                    <p>Geography - Maps - Session 1</p>
+                    <a href="#" class="view-course-btn">View Course</a>
+                </div>
+                <div class="folder" data-folder="biology-cells">
+                    <h3>Class 9</h3>
+                    <p>Biology - Cells - Session 1</p>
+                    <a href="#" class="view-course-btn">View Course</a>
+                </div>
+                <div class="folder" data-folder="physics-motion">
+                    <h3>Class 10</h3>
+                    <p>Physics - Motion - Session 2</p>
+                    <a href="#" class="view-course-btn">View Course</a>
+                </div>
+                <div class="folder" data-folder="maths-probability">
+                    <h3>Class 10</h3>
+                    <p>Mathematics - Probability - Session 1</p>
+                    <a href="#" class="view-course-btn">View Course</a>
+                </div>
+                <div class="folder" data-folder="maths-probability">
+                    <h3>Class 10</h3>
+                    <p>Mathematics - Probability - Session 1</p>
+                    <a href="#" class="view-course-btn">View Course</a>
+                </div>
+                <div class="folder" data-folder="maths-probability">
+                    <h3>Class 10</h3>
+                    <p>Mathematics - Probability - Session 1</p>
+                    <a href="#" class="view-course-btn">View Course</a>
+                </div>
+            </div>
+            <style>
+                /* styles.css */
+    
+                .modal {
+                    display: none;
+                    /* Hidden by default */
+                    position: fixed;
+                    /* Stay in place */
+                    z-index: 1000;
+                    /* Sit on top */
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    /* Full width */
+                    height: 100%;
+                    /* Full height */
+                    overflow: auto;
+                    /* Enable scroll if needed */
+                    background-color: rgba(0, 0, 0, 0.7);
+                    /* Black background with transparency */
+                }
+    
+                .modal-content {
+                    text-align: center;
+                    background-color: #fefefe;
+                    /* White background */
+                    margin: 15% auto;
+                    /* Center modal */
+                    padding: 20px;
+                    border: 1px solid #888;
+                    /* Optional border */
+                    width: 40%;
+                    /* Could be more or less, depending on screen size */
+                }
+    
+                .close {
+                    color: #aaa;
+                    /* Close button color */
+                    float: right;
+                    /* Float to the right */
+                    font-size: 28px;
+                    /* Larger font */
+                    font-weight: bold;
+                }
+    
+                .close:hover,
+                .close:focus {
+                    color: black;
+                    /* Change color on hover */
+                    text-decoration: none;
+                    cursor: pointer;
+                }
+            </style>
+            <script>
+                // script.js
+                document.addEventListener('DOMContentLoaded', () => {
+                    const modal = document.getElementById('courseModal');
+                    const closeModal = document.querySelector('.close');
+                    const courseTitle = document.getElementById('courseTitle');
+                    const courseVideo = document.getElementById('courseVideo');
+                    const courseNotes = document.getElementById('courseNotes');
+    
+                    // Open modal when "View Course" button is clicked
+                    document.querySelectorAll('.view-course-btn').forEach(button => {
+                        button.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            const folder = e.target.closest('.folder').getAttribute('data-folder');
+                            courseTitle.innerText = folder.replace(/-/g, ' ').toUpperCase();
+                            courseVideo.src = `https://www.youtube.com/embed/example_video_id`; // Replace with actual video ID or URL
+                            courseNotes.innerHTML = `<p>Notes related to ${folder.replace(/-/g, ' ')}.</p>`;
+                            modal.style.display = 'block'; // Show the modal
+                        });
+                    });
+    
+                    // Close modal functionality
+                    closeModal.addEventListener('click', () => {
+                        modal.style.display = 'none'; // Hide the modal
+                        courseVideo.src = ''; // Stop the video when closing
+                    });
+    
+                    // Close modal when clicking outside of it
+                    window.addEventListener('click', (event) => {
+                        if (event.target === modal) {
+                            modal.style.display = 'none'; // Hide the modal
+                            courseVideo.src = ''; // Stop the video when closing
+                        }
+                    });
+                });
+    
+            </script>
+        </div>
+        
+    </section>
+
+    <!-- Modal Structure -->
+    <div id="courseModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="courseTitle"></h2>
+            <video id="courseVideo" controls></video>
+            <style>
+                #courseVideo{
+                    height: 240px;
+                }
+            </style>
+            <div id="courseNotes"></div>
+        </div>
+    </div>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <h2>Schools Connected with Us</h2>
+            <div id="map"></div> <!-- The div where the map will appear -->
+        </div>
+    </section>
+
+
+    <!-- Featured Schools/Testimonials Section -->
+    <section class="featured-schools">
+        <div class="container">
+            <h2>Featured Schools</h2>
+            <div class="schools">
+                <div class="school-card">
+                    <img src="school1.jpg" alt="School 1">
+                    <h3>Sri Sri Academy, Kolkata</h3>
+                    <p>"BSU has transformed our STEM curriculum!"</p>
+                </div>
+                <div class="school-card">
+                    <img src="school2.jpg" alt="School 2">
+                    <h3>Springfields Public School, Delhi</h3>
+                    <p>"Our students are more engaged than ever!"</p>
+                </div>
+                <div class="school-card">
+                    <img src="school3.jpg" alt="School 2">
+                    <h3>Kendriya Vidalaya, Kerala</h3>
+                    <p>"It is a wonderful experience for all students!"</p>
+                </div>
+                <div class="school-card">
+                    <img src="school4.jpg" alt="School 2">
+                    <h3>Silver Oaks School, Mumbai</h3>
+                    <p>"STEM learning has made things extremely convenient and easy!"</p>
+                </div>
+                <!-- Add more school cards -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Benefits Section -->
+    <section class="key-benefits">
+        <div class="container">
+            <h2>Key Benefits of Joining BSU</h2>
+            <ul class="benefits-list">
+                <li class="benefit-item">Affordable Learning: Tailored weekly subscriptions</li>
+                <li class="benefit-item">STEM-focused Curriculum: Expert-designed courses</li>
+                <li class="benefit-item">Nationwide Network: Join a growing community of schools</li>
+            </ul>
+        </div>
+    </section>
+
+
+    <!-- Impact Statistics Section -->
+    <section class="impact-statistics">
+        <div class="container">
+            <h2>Impact Statistics</h2>
+            <div class="statistics">
+                <div class="statistic" data-count="100">
+                    <span class="count">0</span> <!-- Ensure count is inside a span -->
+                    <p>Schools Registered</p>
+                </div>
+                <div class="statistic" data-count="4000">
+                    <span class="count">0</span> <!-- Ensure count is inside a span -->
+                    <p>Students Enrolled</p>
+                </div>
+                <div class="statistic" data-count="1500">
+                    <span class="count">0</span> <!-- Ensure count is inside a span -->
+                    <p>Laptops Delivered</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h3 class="faq-question">
+                    <span>How does BSU work?</span>
+                    <i class="fa-solid fa-angle-down"></i>
+                </h3>
+                <div class="faq-answer">BSU provides a comprehensive STEM curriculum designed to engage students and
+                    enhance their learning experience...</div>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-question">
+                    <span>What is the pricing model?</span>
+                    <i class="fa-solid fa-angle-down"></i>
+                </h3>
+                <div class="faq-answer">Our pricing is based on the number of laptops needed for the course, ensuring
+                    affordability for schools...</div>
+            <style>
+                .faq-question {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .faq-question span {
+                flex: 1;
+            }
+            
+            .faq-question i {
+                margin-left: 10px; /* Adds some space between the text and the icon */
+            }
+            </style>
+    </section>
+
+
+    <!-- Blog/News Section -->
+    <section class="blog">
+        <div class="container">
+            <h2>Blog and News</h2>
+            <div class="schools">
+                <article class="school-card2"> 
+                    <h3>New Partnership with Sri Sri Academy, Kolkata</h3><br>
+                    <p>We're excited to announce a new partnership with Sri Sri Academy! This collaboration will bring innovative educational programs to students in Kolkata, fostering academic excellence and personal growth. Through this partnership, we aim to enhance the learning experience by introducing cutting-edge technology, interactive workshops, and cultural exchange programs. Students will benefit from a holistic approach to education that combines traditional values with modern teaching methodologies.</p> </article> 
+                    <article class="school-card2"> <h3>Importance of STEM Education</h3> <br><p>STEM education is crucial for the future of our society and economy. It equips students with critical thinking skills, problem-solving abilities, and a deep understanding of science, technology, engineering, and mathematics. By emphasizing STEM subjects, we prepare the next generation for the challenges of an increasingly technological world. This approach not only enhances career prospects but also fosters innovation and creativity. Our STEM programs include hands-on experiments, robotics clubs, coding workshops, and partnerships with local tech companies to provide real-world exposure to students.</p> </article>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Success Stories Section -->
+    <section class="success-stories">
+        <div class="container2">
+            <h2>Success Stories</h2>
+            <div class="story">
+                <h3>School ABC: Achieving New Heights</h3>
+                <p>Before implementing BSU, School ABC struggled with STEM...</p>
+            </div>
+            <div class="story">
+                <h3>School XYZ: A Model of Success</h3>
+                <p>After joining BSU, School XYZ saw significant improvements...</p>
+                <style>
+                    /* Container styling */
+.container2 {
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Heading styles */
+.container2 h2{
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: #2e7d32;
+    animation: fadeIn 1s ease-in;
+}
+
+.container2 h3 {
+    margin: 15px 0 10px;
+    font-size: 1.5rem;
+    color: #107c2b;
+}
+
+/* Story block styles */
+.story {
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: #fafafa;
+}
+
+.story p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: black;
+}
+                </style>
+    </section>
+
+    <!-- Modal for Course Videos -->
+    <div id="courseModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="video-section">
+                <h2 id="courseTitle"></h2>
+                <iframe id="courseVideo" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="notes-section" id="courseNotes"></div>
+        </div>
+    </div>
+
+
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script> <!-- Leaflet JS --> <!-- Link to your JS file -->
+</body>
+
+</html>

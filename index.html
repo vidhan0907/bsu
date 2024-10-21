@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Registration - BSU</title>
+    
+</head>
+<body>
+
+    <style>
+        /* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f5f6;
+}
+
+h2 {
+    text-align: center;
+    color: #002d66;
+    margin-bottom: 10px;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tagline {
+    text-align: center;
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+/* Registration Section */
+.registration {
+    background-color: #ffffff;
+    padding: 50px 20px;
+    margin: 50px auto;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+.registration:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transform: scale(1.02);
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #002d66;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #cfcfcf;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #002d66;
+    box-shadow: 0 0 5px rgba(0, 45, 102, 0.5);
+    outline: none;
+}
+
+button {
+    background-color: #004aad;
+    color: white;
+    padding: 15px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #00348a;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+#totalCost {
+    background-color: #e9ecef;
+    border: none;
+    cursor: not-allowed;
+    font-weight: bold;
+}
+
+#totalCost:focus {
+    outline: none;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .registration {
+        padding: 30px 15px;
+    }
+
+    input[type="text"], 
+    input[type="number"], 
+    button {
+        font-size: 14px;
+    }
+}
+
+    </style>
+
+    <!-- Registration Section -->
+    <section class="registration">
+        <div class="container">
+            <h2>Register Your School</h2>
+            <p class="tagline">Join Bharatiya Shiksha Udyog and advance STEM education across Bharat</p>
+            <form id="registrationForm" action="homepage.html">
+                <div class="form-group">
+                    <label for="schoolName">School Name</label>
+                    <input type="text" id="schoolName" placeholder="Enter School Name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="state">State</label>
+                    <input type="text" id="state" placeholder="Enter State" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="district">District</label>
+                    <input type="text" id="district" placeholder="Enter District" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="village">Village</label>
+                    <input type="text" id="village" placeholder="Enter Village" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentStrength">Student Strength</label>
+                    <input type="number" id="studentStrength" placeholder="Enter Student Strength" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="laptopsNeeded">Number of Laptops Needed</label>
+                    <input type="number" id="laptopsNeeded" placeholder="Enter Laptops Needed" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="frequency">Frequency (Weekly Subscription per Month)</label>
+                    <input type="number" id="frequency" placeholder="Enter Frequency" required>
+                </div>
+
+                <div class="form-group">
+                    <button type="button" onclick="calculateCost()">Calculate Total Cost</button>
+                </div>
+
+                <div class="form-group">
+                    <label for="totalCost">Total Cost</label>
+                    <input type="text" id="totalCost" placeholder="Total Cost will be displayed here" readonly>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit">Submit Registration</button>
+                </div>
+            </form>
+        </div>
+    </section>
+<script>
+function calculateCost() {
+    // Getting input values
+    const laptopsNeeded = document.getElementById('laptopsNeeded').value;
+    const frequency = document.getElementById('frequency').value;
+    
+    // Calculation logic: 500 * laptopsNeeded * frequency
+    const totalCost = 500 * laptopsNeeded * frequency;
+
+    // Displaying the total cost
+    if (!isNaN(totalCost) && laptopsNeeded > 0 && frequency > 0) {
+        document.getElementById('totalCost').value = `₹ ${totalCost}`;
+    } else {
+        document.getElementById('totalCost').value = 'Please enter valid values';
+    }
+}
+
+// Form Submission Logic (Optional)
+
+
+
+</script>
+    <script src="script.js"></script>
+</body>
+</html>
