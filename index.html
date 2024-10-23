@@ -3,691 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BSU - Bharatiya Shiksha Udyog</title>
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
-    <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <title>School Registration - BSU</title>
+    
 </head>
 <body>
 
-    <div class="navigation">
-        <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
-
-        <label for="navi-toggle" class="navigation__button">
-            <span class="navigation__icon">&nbsp;</span>
-        </label>
-
-        <div class="navigation__background">&nbsp;</div>
-
-        <nav class="navigation__nav">
-            <ul class="navigation__list">
-                <li class="navigation__item"><a href="#hero" class="navigation__link"><span>Home</span></a></li>
-                <li class="navigation__item"><a href="#course-folders" class="navigation__link"><span>Course Folders</span></a></li>
-                <li class="navigation__item"><a href="#map-section" class="navigation__link"><span>Schools Connected</span></a></li>
-                <li class="navigation__item"><a href="#key-benefits" class="navigation__link"><span>Key Benefits</span></a></li>
-                <li class="navigation__item"><a href="#faq" class="navigation__link"><span>FAQ's</span></a></li>
-                <li class="navigation__item"><a href="#blog" class="navigation__link"><span>Blog & News</span></a></li>
-                <li class="navigation__item"><a href="#success-stories" class="navigation__link"><span>Success Stories</span></a></li>
-                </ul>
-        </nav>
-    </div>
-    <script>
-        // Get all navigation links
-        const navLinks = document.querySelectorAll('.navigation__link');
-    
-        // Add click event to each link
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                // Uncheck the navigation checkbox to close the menu
-                document.getElementById('navi-toggle').checked = false;
-            });
-        });
-    </script>
-
-    <!-- Hero Section -->
-    <section class="hero" id="hero"> 
-        <div class="hero-content">
-          <img src="logo.jpg" alt="Hero Image" class="hero-image">
-          <h1>Welcome to Bharatiya Shiksha Udyog (BSU)</h1> 
-          <p class="tagline">STEM Shiksha se judega Bharat...tabhi toh unnati karega Bharat!</p>
-        </div>
-        <style>
-            .hero-content {
-              text-align: center; /* Centers the content */
-            }
-            .hero-image {
-              width: 22%; /* Adjust the width of the image to fit the container */
-              height: auto; /* Keeps the image aspect ratio intact */
-              margin-bottom: 20px; /* Adds space between the image and the h1 */
-            }
-            .tagline {
-                display: inline-block; /* Ensures the text behaves like an inline element for animation */
-                overflow: hidden; /* Ensures the text is hidden during the typing effect */
-                white-space: nowrap; /* Prevents the text from wrapping */
-                animation: typing 5s steps(40, end) infinite, blink-caret 0.75s step-end infinite;
-            }
-        
-            @keyframes typing {
-                from {
-                    width: 0; /* Start with no width */
-                }
-                to {
-                    width: 100%; /* End with full width */
-                }
-            }
-        
-            @keyframes blink-caret {
-                50% {
-                    border-color: transparent; /* Blink effect for the caret */
-                }
-            }
-        </style>
-      </section>
-
-
     <style>
-        /* Container styling */
-        .course-folders {
-            padding: 20px;
-            background-color: #f9f9f9;
-        }
+        /* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-        .course-folders h2 {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+body {
+    background-color: #f4f5f6;
+}
 
-        /* Styling for each class (question + answer) */
-        .classesdiff {
-            margin-bottom: 20px;
-            display: block;
-        }
+h2 {
+    text-align: center;
+    color: #002d66;
+    margin-bottom: 10px;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 
-        /* FAQ Item Active */
-        .lectures.active .lectures {
-            display: flex;
-            /* Show answer when active */
-            
-            
-        }
+.tagline {
+    text-align: center;
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 30px;
+    font-style: italic;
+}
 
-        .classes h3 {
-            font-size: 1.5rem;
-            color: #004aad;
-        }
+/* Registration Section */
+.registration {
+    background-color: #ffffff;
+    padding: 50px 20px;
+    margin: 50px auto;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
 
+.registration:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transform: scale(1.02);
+}
 
-        .classes_css {
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            font-size: 1.2em;
-            padding: 10px;
-            background-color: white;
-            border: 1px solid #004aad;
-            border-radius: 4px;
-            margin-bottom: 10px;
-            display: block;
-            width: 1310px;
-            text-align: center;
-            justify-content: center;
-        }
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
 
-        .lectures {
-            display: none;
-            /* Initially hidden */
-            padding: 10px 0;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
+.form-group {
+    margin-bottom: 20px;
+}
 
-        /* Flexbox for spreading the lectures folders horizontally */
-        .lectures .folder {
-            
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            padding: 13px;
-            margin: 8px;
-            text-align: center;
-            width: calc(33.33% - 20px);
-            box-sizing: border-box;
-            height: 150px;
-            align-items: center;
-        }
+label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #002d66;
+}
 
-        /* Styling for View Course Button */
-        .view-course-btn {
-            background-color: #92219d;
-            color: white;
-            text-decoration: none;
-            padding: 8px 15px;
-            border-radius: 5px;
-            margin-top: 10px;
-            display: inline-block;
-        }
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #cfcfcf;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: all 0.2s ease-in-out;
+}
 
-        .classes_css i {
-                        float: right;
-                        margin-right: 10px;
-                        margin-top: 5px;
-                    }
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #002d66;
+    box-shadow: 0 0 5px rgba(0, 45, 102, 0.5);
+    outline: none;
+}
 
-        .view-course-btn:hover {
-            background-color: #75008c;
-        }
+button {
+    background-color: #004aad;
+    color: white;
+    padding: 15px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #00348a;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+#totalCost {
+    background-color: #e9ecef;
+    border: none;
+    cursor: not-allowed;
+    font-weight: bold;
+}
+
+#totalCost:focus {
+    outline: none;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .registration {
+        padding: 30px 15px;
+    }
+
+    input[type="text"], 
+    input[type="number"], 
+    button {
+        font-size: 14px;
+    }
+}
+
     </style>
 
-    <section class="course-folders" id="course-folders">
+    <!-- Registration Section -->
+    <section class="registration">
         <div class="container">
-            <h2>Access Course Folders</h2>
-            <div class="folders">
-                <!-- Class 9 Science Section -->
-                <div class="classesdiff">
-                    <div class="classes_css">
-                        <h3 class="classes">
-                            <span>Class 9 Resources</span>
-                            <i class="fa-solid fa-angle-down"></i>
-                        </h3>
-                    </div>
-                    <div class="lectures">
-                        <div class="folder" data-folder="science-gravity">
-                            <h3>Class 9</h3>
-                            <p>Science - Gravity</p>
-                            <a href="#" class="view-course-btn">View Course</a>
-                        </div>
-                        <div class="folder" data-folder="science-motion">
-                            <h3>Class 9</h3>
-                            <p>Science - Motion</p>
-                            <a href="#" class="view-course-btn">View Course</a>
-                        </div>
-                        <div class="folder" data-folder="science-energy">
-                            <h3>Class 9</h3>
-                            <p>Science - Energy</p>
-                            <a href="#" class="view-course-btn">View Course</a>
-                        </div>
-                        <div class="folder" data-folder="science-atoms">
-                            <h3>Class 9</h3>
-                            <p>Science - Atoms</p>
-                            <a href="#" class="view-course-btn">View Course</a>
-                        </div>
-                        <div class="folder" data-folder="science-matter">
-                            <h3>Class 9</h3>
-                            <p>Science - Matter</p>
-                            <a href="#" class="view-course-btn">View Course</a>
-                        </div>
-                        <div class="folder" data-folder="science-motion">
-                            <h3>Class 9</h3>
-                            <p>Science - Motion</p>
-                            <a href="#" class="view-course-btn">View Course</a>
-                        </div>
-                    </div>
+            <h2>Register Your School</h2>
+            <p class="tagline">Join Bharatiya Shiksha Udyog and advance STEM education across Bharat</p>
+            <form id="registrationForm" action="Homepage.html">
+                <div class="form-group">
+                    <label for="schoolName">School Name</label>
+                    <input type="text" id="schoolName" placeholder="Enter School Name" required>
                 </div>
 
-
-                <div class="classesdiff">
-                    <div class="classes_css">
-                        <h3 class="classes">
-                            <span>Class 10 Resources</span>
-                            <i class="fa-solid fa-angle-down"></i>
-                        </h3>
-                    </div>
-                    <div class="lectures">
-                        <div class="folder" data-folder="maths-probability">
-                            <h3>Class 10</h3>
-                            <p>Mathematics - Probability</p>
-                            <a href="#" class="view-course-btn">View Course</a>
-                        </div>
-                        <div class="folder" data-folder="maths-algebra">
-                            <h3>Class 10</h3>
-                            <p>Mathematics - Algebra</p>
-                            <a href="#" class="view-course-btn">View Course</a>
-                        </div>
-                        <div class="folder" data-folder="maths-geometry">
-                            <h3>Class 10</h3>
-                            <p>Mathematics - Geometry</p>
-                            <a href="#" class="view-course-btn">View Course</a>
-                        </div>
-                        <div class="folder" data-folder="maths-trigonometry">
-                            <h3>Class 10</h3>
-                            <p>Mathematics - Trigo</p>
-                            <a href="#" class="view-course-btn">View Course</a>
-                        </div>
-                        <div class="folder" data-folder="maths-calculus">
-                            <h3>Class 10</h3>
-                            <p>Mathematics - Calculus</p>
-                            <a href="#" class="view-course-btn">View Course</a>
-                        </div>
-                        <div class="folder" data-folder="maths-algebra">
-                            <h3>Class 10</h3>
-                            <p>Mathematics - Algebra</p>
-                            <a href="#" class="view-course-btn">View Course</a>
-                        </div>
-                    </div>
+                <div class="form-group">
+                    <label for="state">State</label>
+                    <input type="text" id="state" placeholder="Enter State" required>
                 </div>
 
-                <!-- Class 8 Geography Section -->
-                <div class="classesdiff">
-                    <div class="classes_css">
-                        <h3 class="classes">
-                            <span>Class 11 Resources</span>
-                            <i class="fa-solid fa-angle-down"></i>
-                        </h3>
-                    </div>
-                    <div class="lectures">
-                        <div class="folder" data-folder="geography-maps">
-                            <h3>Class 11</h3>
-                            <p>Geography - Maps</p>
-                            <a href="#" class="view-course-btn">View Course</a>
-                        </div>
-                        <div class="folder" data-folder="geography-climate">
-                            <h3>Class 11</h3>
-                            <p>Geography - Climate</p>
-                            <a href="#" class="view-course-btn">View Course</a>
-                        </div>
-                        <div class="folder" data-folder="geography-population">
-                            <h3>Class 11</h3>
-                            <p>Geography - Population</p>
-                            <a href="#" class="view-course-btn">View Course</a>
-                        </div>
-                        <div class="folder" data-folder="geography-resources">
-                            <h3>Class 11</h3>
-                            <p>Geography - Resources</p>
-                            <a href="#" class="view-course-btn">View Course</a>
-                        </div>
-                        <div class="folder" data-folder="geography-agriculture">
-                            <h3>Class 11</h3>
-                            <p>Geography - Agriculture</p>
-                            <a href="#" class="view-course-btn">View Course</a>
-                        </div><div class="folder" data-folder="geography-climate">
-                            <h3>Class 11</h3>
-                            <p>Geography - Climate</p>
-                            <a href="#" class="view-course-btn">View Course</a>
-                        </div>
-                    </div>
+                <div class="form-group">
+                    <label for="district">District</label>
+                    <input type="text" id="district" placeholder="Enter District" required>
                 </div>
 
-                <!-- Class 8 Geography Section -->
-                <div class="classesdiff">
-                    <div class="classes_css">
-                        <h3 class="classes">
-                            <span>Class 12 Resources</span>
-                            <i class="fa-solid fa-angle-down"></i>
-                        </h3>
-                    </div>
-                    <div class="lectures">
-                        <div class="folder" data-folder="geography-maps">
-                            <h3>Lecture 1</h3>
-                            <p>Geography - Maps</p>
-                            <a href="#" class="view-course-btn">View Course</a>
-                        </div>
-                        <div class="folder" data-folder="geography-climate">
-                            <h3>Lecture 2</h3>
-                            <p>Geography - Climate</p>
-                            <a href="#" class="view-course-btn">View Course</a>
-                        </div>
-                        <div class="folder" data-folder="geography-population">
-                            <h3>Lecture 3</h3>
-                            <p>Geography - Population</p>
-                            <a href="#" class="view-course-btn">View Course</a>
-                        </div>
-                        <div class="folder" data-folder="geography-resources">
-                            <h3>Lecture 4</h3>
-                            <p>Geography - Resources</p>
-                            <a href="#" class="view-course-btn">View Course</a>
-                        </div>
-                        <div class="folder" data-folder="geography-resources">
-                            <h3>Lecture 5</h3>
-                            <p>Geography - Resources</p>
-                            <a href="#" class="view-course-btn">View Course</a>
-                        </div>
-                        <div class="folder" data-folder="geography-resources">
-                            <h3>Lecture 6</h3>
-                            <p>Geography - Resources</p>
-                            <a href="#" class="view-course-btn">View Course</a>
-                        </div>
-                        
-                    </div>
+                <div class="form-group">
+                    <label for="village">Village</label>
+                    <input type="text" id="village" placeholder="Enter Village" required>
                 </div>
-                <!-- More classes continue similarly... -->
-            </div>
+
+                <div class="form-group">
+                    <label for="studentStrength">Student Strength</label>
+                    <input type="number" id="studentStrength" placeholder="Enter Student Strength" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="laptopsNeeded">Number of Laptops Needed</label>
+                    <input type="number" id="laptopsNeeded" placeholder="Enter Laptops Needed" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="frequency">Frequency (Weekly Subscription per Month)</label>
+                    <input type="number" id="frequency" placeholder="Enter Frequency" required>
+                </div>
+
+                <div class="form-group">
+                    <button type="button" onclick="calculateCost()">Calculate Total Cost</button>
+                </div>
+
+                <div class="form-group">
+                    <label for="totalCost">Total Cost</label>
+                    <input type="text" id="totalCost" placeholder="Total Cost will be displayed here" readonly>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit">Submit Registration</button>
+                </div>
+            </form>
         </div>
     </section>
-            <style>
-                /* styles.css */
-                .modal {
-                    display: none;
-                    /* hidden by default */
-                    position: fixed;
-                    /* Stay in place */
-                    z-index: 1000;
-                    /* Sit on top */
-                    left: 0;
-                    top: 0;
-                    width: 100%;
-                    /* Full width */
-                    height: 100%;
-                    /* Full height */
-                    overflow: auto;
-                    /* Enable scroll if needed */
-                    background-color: rgba(0, 0, 0, 0.7);
-                    /* Black background with transparency */
-                }
+<script>
+function calculateCost() {
+    // Getting input values
+    const laptopsNeeded = document.getElementById('laptopsNeeded').value;
+    const frequency = document.getElementById('frequency').value;
     
-                .modal-content {
-                    text-align: center;
-                    background-color: #fefefe;
-                    /* White background */
-                    margin: 15% auto;
-                    /* Center modal */
-                    padding: 20px;
-                    border: 1px solid #888;
-                    /* Optional border */
-                    width: 40%;
-                    /* Could be more or less, depending on screen size */
-                }
-    
-                .close {
-                    color: #aaa;
-                    /* Close button color */
-                    float: right;
-                    /* Float to the right */
-                    font-size: 28px;
-                    /* Larger font */
-                    font-weight: bold;
-                }
-    
-                .close:hover,
-                .close:focus {
-                    color: black;
-                    /* Change color on hover */
-                    text-decoration: none;
-                    cursor: pointer;
-                }
-            </style>
-            <script>
-                // script.js
-                document.addEventListener('DOMContentLoaded', () => {
-                    const modal = document.getElementById('courseModal');
-                    const closeModal = document.querySelector('.close');
-                    const courseTitle = document.getElementById('courseTitle');
-                    const courseVideo = document.getElementById('courseVideo');
-                    const courseNotes = document.getElementById('courseNotes');
-    
-                    // Open modal when "View Course" button is clicked
-                    document.querySelectorAll('.view-course-btn').forEach(button => {
-                        button.addEventListener('click', (e) => {
-                            e.preventDefault();
-                            const folder = e.target.closest('.folder').getAttribute('data-folder');
-                            courseTitle.innerText = folder.replace(/-/g, ' ').toUpperCase();
-                            courseVideo.src = `https://www.youtube.com/embed/example_video_id`; // Replace with actual video ID or URL
-                            courseNotes.innerHTML = `<p>Notes related to ${folder.replace(/-/g, ' ')}.</p>`;
-                            modal.style.display = 'block'; // Show the modal
-                        });
-                    });
-    
-                    // Close modal functionality
-                    closeModal.addEventListener('click', () => {
-                        modal.style.display = 'none'; // hide the modal
-                        courseVideo.src = ''; // Stop the video when closing
-                    });
-    
-                    // Close modal when clicking outside of it
-                    window.addEventListener('click', (event) => {
-                        if (event.target === modal) {
-                            modal.style.display = 'none'; // hide the modal
-                            courseVideo.src = ''; // Stop the video when closing
-                        }
-                    });
-                });
-    
-            </script>
-        </div>
-        
-    </section>
+    // Calculation logic: 500 * laptopsNeeded * frequency
+    const totalCost = 500 * laptopsNeeded * frequency;
 
-    <!-- Modal Structure -->
-    <div id="courseModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2 id="courseTitle"></h2>
-            <video id="courseVideo" controls></video>
-            <style>
-                #courseVideo{
-                    height: 240px;
-                }
-            </style>
-            <div id="courseNotes"></div>
-        </div>
-    </div>
-
-    <!-- Map Section -->
-    <section class="map-section" id="map-section">
-        <div class="container">
-            <h2>Schools Connected with Us</h2>
-            <div id="map"></div> <!-- The div where the map will appear -->
-        </div>
-    </section>
-
-
-    <!-- Featured Schools/Testimonials Section -->
-    <section class="featured-schools">
-        <div class="container">
-            <h2>Featured Schools</h2>
-            <div class="schools">
-                <div class="school-card">
-                    <img src="school1.jpg" alt="School 1">
-                    <h3>Sri Sri Academy, Kolkata</h3>
-                    <p>"BSU has transformed our STEM curriculum!"</p>
-                </div>
-                <div class="school-card">
-                    <img src="school2.jpg" alt="School 2">
-                    <h3>Springfields Public School, Delhi</h3>
-                    <p>"Our students are more engaged than ever!"</p>
-                </div>
-                <div class="school-card">
-                    <img src="school3.jpg" alt="School 2">
-                    <h3>Kendriya Vidalaya, Kerala</h3>
-                    <p>"It is a wonderful experience for all students!"</p>
-                </div>
-                <div class="school-card">
-                    <img src="school4.jpg" alt="School 2">
-                    <h3>Silver Oaks School, Mumbai</h3>
-                    <p>"STEM learning has made things extremely convenient and easy!"</p>
-                </div>
-                <!-- Add more school cards -->
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Key Benefits Section -->
-    <section class="key-benefits" id="key-benefits">
-        <div class="container">
-            <h2>Key Benefits of Joining BSU</h2>
-            <ul class="benefits-list">
-                    <li class="benefit-item">
-                        <h3>Affordable Learning: Tailored weekly subscriptions</h3>
-                        <p>Our learning platform offers a cost-effective solution for students and families through tailored weekly subscriptions. This flexible pricing model allows learners to access a wide range of educational resources and courses without the burden of a large upfront payment.
-                        </p>
-                    </li>
-                    <li class="benefit-item">
-                        <h3>STEM-focused Curriculum: Expert-designed courses</h3>
-                        <p>Our curriculum is meticulously crafted by experts in the fields of Science, Technology, Engineering, and Mathematics (STEM). Each course is designed to engage students through interactive and hands-on learning experiences that foster critical thinking and problem-solving skills.
-                        </p>
-                    </li>
-                    <li class="benefit-item">
-                        <h3>Nationwide Network: Join a growing community of schools</h3>
-                        <p>By joining our platform, students and educators become part of a nationwide network of schools and learning communities. This network not only provides access to a diverse array of educational resources but also fosters collaboration and sharing of best practices among educators. Schools can connect with one another to exchange ideas, participate in joint projects, and create a supportive environment for all.
-                        </p>
-                    </li>
-            </ul>
-        </div>
-    </section>
-
-
-    <!-- Impact Statistics Section -->
-    <section class="impact-statistics">
-        <div class="container">
-            <h2>Impact Statistics</h2>
-            <div class="statistics">
-                <div class="statistic" data-count="100">
-                    <span class="count">0</span> <!-- Ensure count is inside a span -->
-                    <p>Schools Registered</p>
-                </div>
-                <div class="statistic" data-count="4000">
-                    <span class="count">0</span> <!-- Ensure count is inside a span -->
-                    <p>Students Enrolled</p>
-                </div>
-                <div class="statistic" data-count="1500">
-                    <span class="count">0</span> <!-- Ensure count is inside a span -->
-                    <p>Laptops Delivered</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- FAQ Section -->
-    <section class="faq" id="faq">
-        <div class="container">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-item">
-                <h3 class="faq-question">
-                    <span>How does BSU work?</span>
-                    <i class="fa-solid fa-angle-down"></i>
-                </h3>
-                <div class="faq-answer">
-                    <p>BSU (presumably referring to a specific university) offers a robust and comprehensive STEM (Science, Technology, Engineering, and Mathematics) curriculum aimed at fostering an engaging and enriching educational environment for students. The curriculum is designed to not only impart foundational knowledge in various STEM fields but also to promote critical thinking, problem-solving skills, and hands-on learning experiences.
-                    The curriculum includes a variety of courses that cover essential topics in each of the STEM disciplines. For instance, students can expect to delve into advanced mathematics, explore the principles of physics, engage in biological sciences, and gain insights into computer science and engineering technologies. The courses are structured to encourage collaboration and teamwork, often incorporating project-based learning where students work together on real-world challenges.
-                    </p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <h3 class="faq-question">
-                    <span>What is the pricing model?</span>
-                    <i class="fa-solid fa-angle-down"></i>
-                </h3>
-                <div class="faq-answer"><p>The pricing model for our courses is designed to be flexible and accessible, primarily based on the number of laptops required for each course. This approach ensures that schools can tailor their investment according to their specific needs and the number of students participating in the program.
-                    By aligning costs with the number of laptops, we aim to provide an affordable solution that minimizes financial strain on educational institutions. This model allows schools to scale their resources effectively, whether they are looking to implement the program in a single classroom or across multiple grades.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <h3 class="faq-question">
-                    <span>What is the duration of the courses?</span>
-                    <i class="fa-solid fa-angle-down"></i>
-                </h3>
-                <div class="faq-answer"><p>Course durations vary based on the topic and format. Live courses typically last 6 to 12 weeks, providing structured learning with real-time interaction between instructors and students. In contrast, self-paced courses allow learners to complete the material at their convenience, leading to varying durations that can range from a few days to several months. The complexity of the subject and the inclusion of hands-on projects or assessments also influence the overall length of the course. This flexibility in self-paced learning makes education more accessible to individuals with different schedules and commitments.</p>
-                </div>
-            </div>
-        </div>
-            <style>
-                .faq-question {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            .faq-question span {
-                flex: 1;
-            }
-            
-            .faq-question i {
-                margin-left: 10px; /* Adds some space between the text and the icon */
-            }
-            </style>
-    </section>
-
-
-    <!-- Blog/News Section -->
-    <section class="blog" id="blog">
-        <div class="container">
-            <h2>Blog and News</h2>
-            <div class="schools">
-                <article class="school-card2"> 
-                    <h3>New Partnership with Sri Sri Academy, Kolkata</h3><br>
-                    <p>We're excited to announce a new partnership with Sri Sri Academy! This collaboration will bring innovative educational programs to students in Kolkata, fostering academic excellence and personal growth. Through this partnership, we aim to enhance the learning experience by introducing cutting-edge technology, interactive workshops, and cultural exchange programs. Students will benefit from a holistic approach to education that combines traditional values with modern teaching methodologies.</p> </article> 
-                    <article class="school-card2"> <h3>Importance of STEM Education</h3> <br><p>STEM education is crucial for the future of our society and economy. It equips students with critical thinking skills, problem-solving abilities, and a deep understanding of science, technology, engineering, and mathematics. By emphasizing STEM subjects, we prepare the next generation for the challenges of an increasingly technological world. This approach not only enhances career prospects but also fosters innovation and creativity. Our STEM programs include hands-on experiments, robotics clubs, coding workshops, and partnerships with local tech companies to provide real-world exposure to students.</p> </article>
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- Success Stories Section -->
-    <section class="success-stories" id="success-stories">
-        <div class="container2">
-            <h2>Success Stories</h2>
-            <div class="story">
-                <h3>School ABC: Achieving New Heights</h3>
-                <p>Before implementing BSU, School ABC struggled with STEM...</p>
-            </div>
-            <div class="story">
-                <h3>School XYZ: A Model of Success</h3>
-                <p>After joining BSU, School XYZ saw significant improvements...</p>
-                <style>
-                    /* Container styling */
-.container2 {
-    margin: 0 auto;
-    padding: 20px;
-    font-family: 'Arial', sans-serif;
+    // Displaying the total cost
+    if (!isNaN(totalCost) && laptopsNeeded > 0 && frequency > 0) {
+        document.getElementById('totalCost').value = `₹ ${totalCost}`;
+    } else {
+        document.getElementById('totalCost').value = 'Please enter valid values';
+    }
 }
-
-/* Heading styles */
-.container2 h2{
-    margin-bottom: 40px;
-    font-size: 2rem;
-    color: #2e7d32;
-    animation: fadeIn 1s ease-in;
-}
-
-.container2 h3 {
-    margin: 15px 0 10px;
-    font-size: 1.5rem;
-    color: #107c2b;
-}
-
-/* Story block styles */
-.story {
-    border: 1px solid #e0e0e0;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    background-color: #fafafa;
-}
-
-.story p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: black;
-}
-                </style>
-    </section>
-
-    <!-- Modal for Course Videos -->
-    <div id="courseModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div class="video-section">
-                <h2 id="courseTitle"></h2>
-                <iframe id="courseVideo" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="notes-section" id="courseNotes"></div>
-        </div>
-    </div>
-
-
-
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script> <!-- Leaflet JS --> <!-- Link to your JS file -->
+</script>
+    <script src="script.js"></script>
 </body>
-
 </html>
