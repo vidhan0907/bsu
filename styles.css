@@ -1,3 +1,4 @@
+
 /* General Styles */
 * {
     margin: 0;
@@ -124,7 +125,7 @@ html{
                 .navigation__item{
                     margin:1rem
                 }
-                .navigation__link:link,.navigation__link:visited{
+                .navigation_link:link,.navigation_link:visited{
                     display:inline-block;
                     font-size:2rem;
                     font-weight:400;
@@ -136,16 +137,16 @@ html{
                     background-size:220%;
                     -webkit-transition:all .4s;
                     transition:all .4s}
-                    .navigation__link:link span,.navigation__link:visited span{
+                    .navigation_link:link span,.navigation_link:visited span{
                         margin-right:1.5rem;
                         display:inline-block
                     }
-                    .navigation__link:hover,.navigation__link:active{
+                    .navigation_link:hover,.navigation_link:active{
                         background-position:100%;
                         color:#1f6eec;
                         -webkit-transform:translateX(1rem);transform:translateX(1rem)
                     }
-                    .navigation__checkbox:checked ~ .navigation__background{
+                    .navigation_checkbox:checked ~ .navigation_background{
                         -webkit-transform:scale(80);
                         transform:scale(80)
                     }
@@ -157,13 +158,13 @@ html{
                             position:relative;
                             margin-top:1.5rem
                         }
-                        .navigation__icon,.navigation__icon::before,.navigation__icon::after{
+                        .navigation_icon,.navigationicon::before,.navigation_icon::after{
                             width:1.6rem;
                             height:0.2px;
                             background-color:#333;
                             display:inline-block
                         }
-                        .navigation__icon::before,.navigation__icon::after{
+                        .navigation_icon::before,.navigation_icon::after{
                             content:"";
                             position:absolute;
                             left:0;
@@ -175,22 +176,22 @@ html{
                         .navigation__icon::after{
                             top:.6rem
                         }
-                        .navigation__button:hover .navigation__icon::before{
+                        .navigation_button:hover .navigation_icon::before{
                             top:-0.8rem
                         }
-                        .navigation__button:hover .navigation__icon::after
+                        .navigation_button:hover .navigation_icon::after
                         {
                             top:0.8rem
                         }
-                        .navigation__checkbox:checked+.navigation__button .navigation__icon{
+                        .navigation_checkbox:checked+.navigationbutton .navigation_icon{
                             background-color:transparent
                         }
-                        .navigation__checkbox:checked+.navigation__button .navigation__icon::before{
+                        .navigation_checkbox:checked+.navigationbutton .navigation_icon::before{
                             top:0;
                             -webkit-transform:rotate(135deg);
                             transform:rotate(135deg)
                         }
-                        .navigation__checkbox:checked+.navigation__button .navigation__icon::after{
+                        .navigation_checkbox:checked+.navigationbutton .navigation_icon::after{
                             top:0;-webkit-transform:rotate(-135deg);
                             transform:rotate(-135deg)
                         }
@@ -198,7 +199,7 @@ html{
 
 /* Hero Section */
 .hero {
-    background-color: #064e96;
+    background-color: #003366;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -211,6 +212,7 @@ html{
 }
 
 .hero:hover {
+    background-color: #00348a;
     transform: scale(1.01);
 }
 
@@ -489,7 +491,8 @@ html{
 
 .statistics {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 50px;
     flex-wrap: wrap;
 }
 
