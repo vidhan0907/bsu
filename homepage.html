@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,13 +25,13 @@
 
         <nav class="navigation__nav">
             <ul class="navigation__list">
-                <li class="navigation_item"><a href="#hero" class="navigation_link"><span>Home</span></a></li>
-                <li class="navigation_item"><a href="#course-folders" class="navigation_link"><span>Course Folders</span></a></li>
-                <li class="navigation_item"><a href="#map-section" class="navigation_link"><span>Schools Connected</span></a></li>
-                <li class="navigation_item"><a href="#key-benefits" class="navigation_link"><span>Key Benefits</span></a></li>
-                <li class="navigation_item"><a href="#faq" class="navigation_link"><span>FAQ's</span></a></li>
-                <li class="navigation_item"><a href="#blog" class="navigation_link"><span>Blog & News</span></a></li>
-                <li class="navigation_item"><a href="#success-stories" class="navigation_link"><span>Success Stories</span></a></li>
+                <li class="navigation__item"><a href="#hero" class="navigation__link"><span>Home</span></a></li>
+                <li class="navigation__item"><a href="#course-folders" class="navigation__link"><span>Course Folders</span></a></li>
+                <li class="navigation__item"><a href="#map-section" class="navigation__link"><span>Schools Connected</span></a></li>
+                <li class="navigation__item"><a href="#key-benefits" class="navigation__link"><span>Key Benefits</span></a></li>
+                <li class="navigation__item"><a href="#faq" class="navigation__link"><span>FAQ's</span></a></li>
+                <li class="navigation__item"><a href="#blog" class="navigation__link"><span>Blog & News</span></a></li>
+                <li class="navigation__item"><a href="#success-stories" class="navigation__link"><span>Success Stories</span></a></li>
                 </ul>
         </nav>
     </div>
@@ -52,7 +51,7 @@
     <!-- Hero Section -->
     <section class="hero" id="hero"> 
         <div class="hero-content">
-          <img src="logo.jpg" alt="Hero Image" class="hero-image">
+          <img src="logo3.png" alt="Hero Image" class="hero-image">
           <h1>Welcome to Bharatiya Shiksha Udyog (BSU)</h1> 
           <p class="tagline">STEM Shiksha se judega Bharat...tabhi toh unnati karega Bharat!</p>
         </div>
@@ -427,8 +426,8 @@
                             e.preventDefault();
                             const folder = e.target.closest('.folder').getAttribute('data-folder');
                             courseTitle.innerText = folder.replace(/-/g, ' ').toUpperCase();
-                            courseVideo.src = https://www.youtube.com/embed/example_video_id; // Replace with actual video ID or URL
-                            courseNotes.innerHTML = <p>Notes related to ${folder.replace(/-/g, ' ')}.</p>;
+                            courseVideo.src = `https://www.youtube.com/embed/example_video_id`; // Replace with actual video ID or URL
+                            courseNotes.innerHTML = `<p>Notes related to ${folder.replace(/-/g, ' ')}.</p>`;
                             modal.style.display = 'block'; // Show the modal
                         });
                     });
@@ -546,7 +545,6 @@
                     <span class="count">0</span> <!-- Ensure count is inside a span -->
                     <p>Students Enrolled</p>
                 </div>
-                
             </div>
         </div>
     </section>
@@ -670,7 +668,7 @@
 }
                 </style>
     </section>
-
+                
     <!-- Modal for Course Videos -->
     <div id="courseModal" class="modal">
         <div class="modal-content">
