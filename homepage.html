@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BSU - Bharatiya Shiksha Udyog</title>
     <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
 </head>
+
 <body>
 
     <div class="navigation">
@@ -26,19 +30,23 @@
         <nav class="navigation__nav">
             <ul class="navigation__list">
                 <li class="navigation__item"><a href="#hero" class="navigation__link"><span>Home</span></a></li>
-                <li class="navigation__item"><a href="#course-folders" class="navigation__link"><span>Course Folders</span></a></li>
-                <li class="navigation__item"><a href="#map-section" class="navigation__link"><span>Schools Connected</span></a></li>
-                <li class="navigation__item"><a href="#key-benefits" class="navigation__link"><span>Key Benefits</span></a></li>
+                <li class="navigation__item"><a href="#course-folders" class="navigation__link"><span>Course
+                            Folders</span></a></li>
+                <li class="navigation__item"><a href="#map-section" class="navigation__link"><span>Schools
+                            Connected</span></a></li>
+                <li class="navigation__item"><a href="#key-benefits" class="navigation__link"><span>Key
+                            Benefits</span></a></li>
                 <li class="navigation__item"><a href="#faq" class="navigation__link"><span>FAQ's</span></a></li>
                 <li class="navigation__item"><a href="#blog" class="navigation__link"><span>Blog & News</span></a></li>
-                <li class="navigation__item"><a href="#success-stories" class="navigation__link"><span>Success Stories</span></a></li>
-                </ul>
+                <li class="navigation__item"><a href="#success-stories" class="navigation__link"><span>Success
+                            Stories</span></a></li>
+            </ul>
         </nav>
     </div>
     <script>
         // Get all navigation links
         const navLinks = document.querySelectorAll('.navigation__link');
-    
+
         // Add click event to each link
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
@@ -49,44 +57,57 @@
     </script>
 
     <!-- Hero Section -->
-    <section class="hero" id="hero"> 
+    <section class="hero" id="hero">
         <div class="hero-content">
-          <img src="logo3.png" alt="Hero Image" class="hero-image">
-          <h1>Welcome to Bharatiya Shiksha Udyog (BSU)</h1> 
-          <p class="tagline">STEM Shiksha se judega Bharat...tabhi toh unnati karega Bharat!</p>
+            <img src="logo3.png" alt="Hero Image" class="hero-image">
+            <h1>Welcome to Bharatiya Shiksha Udyog (BSU)</h1>
+            <p class="tagline">STEM Shiksha se judega Bharat...tabhi toh unnati karega Bharat!</p>
         </div>
         <style>
             .hero-content {
-              text-align: center; /* Centers the content */
+                text-align: center;
+                /* Centers the content */
             }
+
             .hero-image {
-              width: 22%; /* Adjust the width of the image to fit the container */
-              height: auto; /* Keeps the image aspect ratio intact */
-              margin-bottom: 20px; /* Adds space between the image and the h1 */
+                width: 22%;
+                /* Adjust the width of the image to fit the container */
+                height: auto;
+                /* Keeps the image aspect ratio intact */
+                margin-bottom: 20px;
+                /* Adds space between the image and the h1 */
             }
+
             .tagline {
-                display: inline-block; /* Ensures the text behaves like an inline element for animation */
-                overflow: hidden; /* Ensures the text is hidden during the typing effect */
-                white-space: nowrap; /* Prevents the text from wrapping */
+                display: inline-block;
+                /* Ensures the text behaves like an inline element for animation */
+                overflow: hidden;
+                /* Ensures the text is hidden during the typing effect */
+                white-space: nowrap;
+                /* Prevents the text from wrapping */
                 animation: typing 5s steps(40, end) infinite, blink-caret 0.75s step-end infinite;
             }
-        
+
             @keyframes typing {
                 from {
-                    width: 0; /* Start with no width */
+                    width: 0;
+                    /* Start with no width */
                 }
+
                 to {
-                    width: 100%; /* End with full width */
+                    width: 100%;
+                    /* End with full width */
                 }
             }
-        
+
             @keyframes blink-caret {
                 50% {
-                    border-color: transparent; /* Blink effect for the caret */
+                    border-color: transparent;
+                    /* Blink effect for the caret */
                 }
             }
         </style>
-      </section>
+    </section>
 
 
     <style>
@@ -111,8 +132,8 @@
         .lectures.active .lectures {
             display: flex;
             /* Show answer when active */
-            
-            
+
+
         }
 
         .classes h3 {
@@ -149,7 +170,7 @@
 
         /* Flexbox for spreading the lectures folders horizontally */
         .lectures .folder {
-            
+
             background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 4px;
@@ -174,10 +195,10 @@
         }
 
         .classes_css i {
-                        float: right;
-                        margin-right: 10px;
-                        margin-top: 5px;
-                    }
+            float: right;
+            margin-right: 10px;
+            margin-top: 5px;
+        }
 
         .view-course-btn:hover {
             background-color: #75008c;
@@ -305,7 +326,8 @@
                             <h3>Class 11</h3>
                             <p>Geography - Agriculture</p>
                             <a href="#" class="view-course-btn">View Course</a>
-                        </div><div class="folder" data-folder="geography-climate">
+                        </div>
+                        <div class="folder" data-folder="geography-climate">
                             <h3>Class 11</h3>
                             <p>Geography - Climate</p>
                             <a href="#" class="view-course-btn">View Course</a>
@@ -352,104 +374,104 @@
                             <p>Geography - Resources</p>
                             <a href="#" class="view-course-btn">View Course</a>
                         </div>
-                        
+
                     </div>
                 </div>
                 <!-- More classes continue similarly... -->
             </div>
         </div>
     </section>
-            <style>
-                /* styles.css */
-                .modal {
-                    display: none;
-                    /* hidden by default */
-                    position: fixed;
-                    /* Stay in place */
-                    z-index: 1000;
-                    /* Sit on top */
-                    left: 0;
-                    top: 0;
-                    width: 100%;
-                    /* Full width */
-                    height: 100%;
-                    /* Full height */
-                    overflow: auto;
-                    /* Enable scroll if needed */
-                    background-color: rgba(0, 0, 0, 0.7);
-                    /* Black background with transparency */
-                }
-    
-                .modal-content {
-                    text-align: center;
-                    background-color: #fefefe;
-                    /* White background */
-                    margin: 15% auto;
-                    /* Center modal */
-                    padding: 20px;
-                    border: 1px solid #888;
-                    /* Optional border */
-                    width: 40%;
-                    /* Could be more or less, depending on screen size */
-                }
-    
-                .close {
-                    color: #aaa;
-                    /* Close button color */
-                    float: right;
-                    /* Float to the right */
-                    font-size: 28px;
-                    /* Larger font */
-                    font-weight: bold;
-                }
-    
-                .close:hover,
-                .close:focus {
-                    color: black;
-                    /* Change color on hover */
-                    text-decoration: none;
-                    cursor: pointer;
-                }
-            </style>
-            <script>
-                // script.js
-                document.addEventListener('DOMContentLoaded', () => {
-                    const modal = document.getElementById('courseModal');
-                    const closeModal = document.querySelector('.close');
-                    const courseTitle = document.getElementById('courseTitle');
-                    const courseVideo = document.getElementById('courseVideo');
-                    const courseNotes = document.getElementById('courseNotes');
-    
-                    // Open modal when "View Course" button is clicked
-                    document.querySelectorAll('.view-course-btn').forEach(button => {
-                        button.addEventListener('click', (e) => {
-                            e.preventDefault();
-                            const folder = e.target.closest('.folder').getAttribute('data-folder');
-                            courseTitle.innerText = folder.replace(/-/g, ' ').toUpperCase();
-                            courseVideo.src = `https://www.youtube.com/embed/example_video_id`; // Replace with actual video ID or URL
-                            courseNotes.innerHTML = `<p>Notes related to ${folder.replace(/-/g, ' ')}.</p>`;
-                            modal.style.display = 'block'; // Show the modal
-                        });
-                    });
-    
-                    // Close modal functionality
-                    closeModal.addEventListener('click', () => {
-                        modal.style.display = 'none'; // hide the modal
-                        courseVideo.src = ''; // Stop the video when closing
-                    });
-    
-                    // Close modal when clicking outside of it
-                    window.addEventListener('click', (event) => {
-                        if (event.target === modal) {
-                            modal.style.display = 'none'; // hide the modal
-                            courseVideo.src = ''; // Stop the video when closing
-                        }
-                    });
+    <style>
+        /* styles.css */
+        .modal {
+            display: none;
+            /* hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1000;
+            /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.7);
+            /* Black background with transparency */
+        }
+
+        .modal-content {
+            text-align: center;
+            background-color: #fefefe;
+            /* White background */
+            margin: 15% auto;
+            /* Center modal */
+            padding: 20px;
+            border: 1px solid #888;
+            /* Optional border */
+            width: 40%;
+            /* Could be more or less, depending on screen size */
+        }
+
+        .close {
+            color: #aaa;
+            /* Close button color */
+            float: right;
+            /* Float to the right */
+            font-size: 28px;
+            /* Larger font */
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            /* Change color on hover */
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        // script.js
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('courseModal');
+            const closeModal = document.querySelector('.close');
+            const courseTitle = document.getElementById('courseTitle');
+            const courseVideo = document.getElementById('courseVideo');
+            const courseNotes = document.getElementById('courseNotes');
+
+            // Open modal when "View Course" button is clicked
+            document.querySelectorAll('.view-course-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const folder = e.target.closest('.folder').getAttribute('data-folder');
+                    courseTitle.innerText = folder.replace(/-/g, ' ').toUpperCase();
+                    courseVideo.src = `https://www.youtube.com/embed/example_video_id`; // Replace with actual video ID or URL
+                    courseNotes.innerHTML = `<p>Notes related to ${folder.replace(/-/g, ' ')}.</p>`;
+                    modal.style.display = 'block'; // Show the modal
                 });
-    
-            </script>
-        </div>
-        
+            });
+
+            // Close modal functionality
+            closeModal.addEventListener('click', () => {
+                modal.style.display = 'none'; // hide the modal
+                courseVideo.src = ''; // Stop the video when closing
+            });
+
+            // Close modal when clicking outside of it
+            window.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    modal.style.display = 'none'; // hide the modal
+                    courseVideo.src = ''; // Stop the video when closing
+                }
+            });
+        });
+
+    </script>
+    </div>
+
     </section>
 
     <!-- Modal Structure -->
@@ -459,7 +481,7 @@
             <h2 id="courseTitle"></h2>
             <video id="courseVideo" controls></video>
             <style>
-                #courseVideo{
+                #courseVideo {
                     height: 240px;
                 }
             </style>
@@ -512,21 +534,30 @@
         <div class="container">
             <h2>Key Benefits of Joining BSU</h2>
             <ul class="benefits-list">
-                    <li class="benefit-item">
-                        <h3>Affordable Learning: Tailored weekly subscriptions</h3>
-                        <p>Our learning platform offers a cost-effective solution for students and families through tailored weekly subscriptions. This flexible pricing model allows learners to access a wide range of educational resources and courses without the burden of a large upfront payment.
-                        </p>
-                    </li>
-                    <li class="benefit-item">
-                        <h3>STEM-focused Curriculum: Expert-designed courses</h3>
-                        <p>Our curriculum is meticulously crafted by experts in the fields of Science, Technology, Engineering, and Mathematics (STEM). Each course is designed to engage students through interactive and hands-on learning experiences that foster critical thinking and problem-solving skills.
-                        </p>
-                    </li>
-                    <li class="benefit-item">
-                        <h3>Nationwide Network: Join a growing community of schools</h3>
-                        <p>By joining our platform, students and educators become part of a nationwide network of schools and learning communities. This network not only provides access to a diverse array of educational resources but also fosters collaboration and sharing of best practices among educators. Schools can connect with one another to exchange ideas, participate in joint projects, and create a supportive environment for all.
-                        </p>
-                    </li>
+                <li class="benefit-item">
+                    <h3>Affordable Learning: Tailored weekly subscriptions</h3>
+                    <p>Our learning platform offers a cost-effective solution for students and families through tailored
+                        weekly subscriptions. This flexible pricing model allows learners to access a wide range of
+                        educational resources and courses without the burden of a large upfront payment.
+                    </p>
+                </li>
+                <li class="benefit-item">
+                    <h3>STEM-focused Curriculum: Expert-designed courses</h3>
+                    <p>Our curriculum is meticulously crafted by experts in the fields of Science, Technology,
+                        Engineering, and Mathematics (STEM). Each course is designed to engage students through
+                        interactive and hands-on learning experiences that foster critical thinking and problem-solving
+                        skills.
+                    </p>
+                </li>
+                <li class="benefit-item">
+                    <h3>Nationwide Network: Join a growing community of schools</h3>
+                    <p>By joining our platform, students and educators become part of a nationwide network of schools
+                        and learning communities. This network not only provides access to a diverse array of
+                        educational resources but also fosters collaboration and sharing of best practices among
+                        educators. Schools can connect with one another to exchange ideas, participate in joint
+                        projects, and create a supportive environment for all.
+                    </p>
+                </li>
             </ul>
         </div>
     </section>
@@ -545,6 +576,10 @@
                     <span class="count">0</span> <!-- Ensure count is inside a span -->
                     <p>Students Enrolled</p>
                 </div>
+                <div class="statistic" data-count="1500">
+                    <span class="count">0</span> <!-- Ensure count is inside a span -->
+                    <p>Laptops Delivered</p>
+                </div>
             </div>
         </div>
     </section>
@@ -561,8 +596,17 @@
                     <i class="fa-solid fa-angle-down"></i>
                 </h3>
                 <div class="faq-answer">
-                    <p>BSU (presumably referring to a specific university) offers a robust and comprehensive STEM (Science, Technology, Engineering, and Mathematics) curriculum aimed at fostering an engaging and enriching educational environment for students. The curriculum is designed to not only impart foundational knowledge in various STEM fields but also to promote critical thinking, problem-solving skills, and hands-on learning experiences.
-                    The curriculum includes a variety of courses that cover essential topics in each of the STEM disciplines. For instance, students can expect to delve into advanced mathematics, explore the principles of physics, engage in biological sciences, and gain insights into computer science and engineering technologies. The courses are structured to encourage collaboration and teamwork, often incorporating project-based learning where students work together on real-world challenges.
+                    <p>BSU (presumably referring to a specific university) offers a robust and comprehensive STEM
+                        (Science, Technology, Engineering, and Mathematics) curriculum aimed at fostering an engaging
+                        and enriching educational environment for students. The curriculum is designed to not only
+                        impart foundational knowledge in various STEM fields but also to promote critical thinking,
+                        problem-solving skills, and hands-on learning experiences.
+                        The curriculum includes a variety of courses that cover essential topics in each of the STEM
+                        disciplines. For instance, students can expect to delve into advanced mathematics, explore the
+                        principles of physics, engage in biological sciences, and gain insights into computer science
+                        and engineering technologies. The courses are structured to encourage collaboration and
+                        teamwork, often incorporating project-based learning where students work together on real-world
+                        challenges.
                     </p>
                 </div>
             </div>
@@ -572,8 +616,15 @@
                     <span>What is the pricing model?</span>
                     <i class="fa-solid fa-angle-down"></i>
                 </h3>
-                <div class="faq-answer"><p>The pricing model for our courses is designed to be flexible and accessible, primarily based on the number of laptops required for each course. This approach ensures that schools can tailor their investment according to their specific needs and the number of students participating in the program.
-                    By aligning costs with the number of laptops, we aim to provide an affordable solution that minimizes financial strain on educational institutions. This model allows schools to scale their resources effectively, whether they are looking to implement the program in a single classroom or across multiple grades.</p>
+                <div class="faq-answer">
+                    <p>The pricing model for our courses is designed to be flexible and accessible, primarily based on
+                        the number of laptops required for each course. This approach ensures that schools can tailor
+                        their investment according to their specific needs and the number of students participating in
+                        the program.
+                        By aligning costs with the number of laptops, we aim to provide an affordable solution that
+                        minimizes financial strain on educational institutions. This model allows schools to scale their
+                        resources effectively, whether they are looking to implement the program in a single classroom
+                        or across multiple grades.</p>
                 </div>
             </div>
 
@@ -582,12 +633,19 @@
                     <span>What is the duration of the courses?</span>
                     <i class="fa-solid fa-angle-down"></i>
                 </h3>
-                <div class="faq-answer"><p>Course durations vary based on the topic and format. Live courses typically last 6 to 12 weeks, providing structured learning with real-time interaction between instructors and students. In contrast, self-paced courses allow learners to complete the material at their convenience, leading to varying durations that can range from a few days to several months. The complexity of the subject and the inclusion of hands-on projects or assessments also influence the overall length of the course. This flexibility in self-paced learning makes education more accessible to individuals with different schedules and commitments.</p>
+                <div class="faq-answer">
+                    <p>Course durations vary based on the topic and format. Live courses typically last 6 to 12 weeks,
+                        providing structured learning with real-time interaction between instructors and students. In
+                        contrast, self-paced courses allow learners to complete the material at their convenience,
+                        leading to varying durations that can range from a few days to several months. The complexity of
+                        the subject and the inclusion of hands-on projects or assessments also influence the overall
+                        length of the course. This flexibility in self-paced learning makes education more accessible to
+                        individuals with different schedules and commitments.</p>
                 </div>
             </div>
         </div>
-            <style>
-                .faq-question {
+        <style>
+            .faq-question {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
@@ -596,11 +654,12 @@
             .faq-question span {
                 flex: 1;
             }
-            
+
             .faq-question i {
-                margin-left: 10px; /* Adds some space between the text and the icon */
+                margin-left: 10px;
+                /* Adds some space between the text and the icon */
             }
-            </style>
+        </style>
     </section>
 
 
@@ -609,10 +668,25 @@
         <div class="container">
             <h2>Blog and News</h2>
             <div class="schools">
-                <article class="school-card2"> 
+                <article class="school-card2">
                     <h3>New Partnership with Sri Sri Academy, Kolkata</h3><br>
-                    <p>We're excited to announce a new partnership with Sri Sri Academy! This collaboration will bring innovative educational programs to students in Kolkata, fostering academic excellence and personal growth. Through this partnership, we aim to enhance the learning experience by introducing cutting-edge technology, interactive workshops, and cultural exchange programs. Students will benefit from a holistic approach to education that combines traditional values with modern teaching methodologies.</p> </article> 
-                    <article class="school-card2"> <h3>Importance of STEM Education</h3> <br><p>STEM education is crucial for the future of our society and economy. It equips students with critical thinking skills, problem-solving abilities, and a deep understanding of science, technology, engineering, and mathematics. By emphasizing STEM subjects, we prepare the next generation for the challenges of an increasingly technological world. This approach not only enhances career prospects but also fosters innovation and creativity. Our STEM programs include hands-on experiments, robotics clubs, coding workshops, and partnerships with local tech companies to provide real-world exposure to students.</p> </article>
+                    <p>We're excited to announce a new partnership with Sri Sri Academy! This collaboration will bring
+                        innovative educational programs to students in Kolkata, fostering academic excellence and
+                        personal growth. Through this partnership, we aim to enhance the learning experience by
+                        introducing cutting-edge technology, interactive workshops, and cultural exchange programs.
+                        Students will benefit from a holistic approach to education that combines traditional values
+                        with modern teaching methodologies.</p>
+                </article>
+                <article class="school-card2">
+                    <h3>Importance of STEM Education</h3> <br>
+                    <p>STEM education is crucial for the future of our society and economy. It equips students with
+                        critical thinking skills, problem-solving abilities, and a deep understanding of science,
+                        technology, engineering, and mathematics. By emphasizing STEM subjects, we prepare the next
+                        generation for the challenges of an increasingly technological world. This approach not only
+                        enhances career prospects but also fosters innovation and creativity. Our STEM programs include
+                        hands-on experiments, robotics clubs, coding workshops, and partnerships with local tech
+                        companies to provide real-world exposure to students.</p>
+                </article>
             </div>
         </div>
     </section>
@@ -625,50 +699,59 @@
             <h2>Success Stories</h2>
             <div class="story">
                 <h3>Springfields Oak School: Achieving New Heights</h3>
-                <p>Before implementing the BSU program, our school faced significant challenges in integrating STEM education, including limited curriculum resources, insufficient teacher training, and low student engagement. Many educators lacked the necessary skills to inspire interest in STEM subjects, leading to poor enrollment in advanced courses, particularly among underrepresented groups. Additionally, the school offered few extracurricular STEM activities and had weak community and industry partnerships, which limited real-world exposure for students.</p>
+                <p>Before implementing the BSU program, our school faced significant challenges in integrating STEM
+                    education, including limited curriculum resources, insufficient teacher training, and low student
+                    engagement. Many educators lacked the necessary skills to inspire interest in STEM subjects, leading
+                    to poor enrollment in advanced courses, particularly among underrepresented groups. Additionally,
+                    the school offered few extracurricular STEM activities and had weak community and industry
+                    partnerships, which limited real-world exposure for students.</p>
             </div>
             <div class="story">
                 <h3>SSRVM Ghatshila: A Model of Success</h3>
-                <p>After joining BSU, our school saw significant improvements in its educational environment. Innovative teaching methods and advanced resources enhanced student engagement and academic performance. Faculty development opportunities allowed teachers to refine their skills and adopt new strategies. The collaboration with BSU also fostered valuable community partnerships, strengthening ties with local organizations.</p>
+                <p>After joining BSU, our school saw significant improvements in its educational environment. Innovative
+                    teaching methods and advanced resources enhanced student engagement and academic performance.
+                    Faculty development opportunities allowed teachers to refine their skills and adopt new strategies.
+                    The collaboration with BSU also fostered valuable community partnerships, strengthening ties with
+                    local organizations.</p>
                 <style>
                     /* Container styling */
-.container2 {
-    margin: 0 auto;
-    padding: 20px;
-    font-family: 'Arial', sans-serif;
-}
+                    .container2 {
+                        margin: 0 auto;
+                        padding: 20px;
+                        font-family: 'Arial', sans-serif;
+                    }
 
-/* Heading styles */
-.container2 h2{
-    margin-bottom: 40px;
-    font-size: 2rem;
-    color: #2e7d32;
-    animation: fadeIn 1s ease-in;
-}
+                    /* Heading styles */
+                    .container2 h2 {
+                        margin-bottom: 40px;
+                        font-size: 2rem;
+                        color: #2e7d32;
+                        animation: fadeIn 1s ease-in;
+                    }
 
-.container2 h3 {
-    margin: 15px 0 10px;
-    font-size: 1.5rem;
-    color: #107c2b;
-}
+                    .container2 h3 {
+                        margin: 15px 0 10px;
+                        font-size: 1.5rem;
+                        color: #107c2b;
+                    }
 
-/* Story block styles */
-.story {
-    border: 1px solid #e0e0e0;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    background-color: #fafafa;
-}
+                    /* Story block styles */
+                    .story {
+                        border: 1px solid #e0e0e0;
+                        padding: 15px;
+                        margin-bottom: 20px;
+                        border-radius: 8px;
+                        background-color: #fafafa;
+                    }
 
-.story p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: black;
-}
+                    .story p {
+                        font-size: 16px;
+                        line-height: 1.6;
+                        color: black;
+                    }
                 </style>
     </section>
-                
+
     <!-- Modal for Course Videos -->
     <div id="courseModal" class="modal">
         <div class="modal-content">
